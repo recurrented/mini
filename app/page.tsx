@@ -47,11 +47,11 @@ export default function Component() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFF6E5] text-gray-800 px-4 py-8 md:py-16 font-mono">
+    <div className="min-h-screen bg-[#FFF6E5] text-gray-800 md:px-4 md:py-16 font-mono">
       {/* Header */}
-      <div className="max-w-2xl mx-auto border-4 border-amber-900 p-8 bg-white/70 backdrop-blur-sm">
+      <div className="max-w-2xl mx-auto border-4 border-amber-900 p-4 md:p-8 bg-white/70 backdrop-blur-sm">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-amber-900 font-serif">
-          minifest '24
+          minifest
         </h1>
         <div className="text-lg text-amber-800 mb-8 border-b-2 border-amber-200 pb-4">
           December 14, 2024 • Lighthaven, Berkeley
@@ -63,26 +63,31 @@ export default function Component() {
             <h2 className="font-semibold mb-2">What</h2>
             <p>
               A cozy one-day festival celebrating prediction markets, blogging,
-              economics, and startups
+              economics, and more
             </p>
           </div>
           <div className="bg-amber-50 p-6 border-2 border-amber-200 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)]">
             <h2 className="font-semibold mb-2">Who</h2>
-            <p>~200 wonderful people from the Manifest community and beyond</p>
+            <p>~200 folks from the Manifest community and beyond</p>
           </div>
         </div>
 
         {/* Main Letter */}
         <div className="prose prose-amber max-w-none mb-12 [&>div]:leading-relaxed">
-          <div className="bg-white p-8 border-2 border-amber-200 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)]">
-            <p className="text-lg mb-4">Hey!</p>
+          <div className="bg-white md:p-8 text-sm p-4 border-2 border-amber-200 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)]">
+            <p className="mb-4">Hey!</p>
 
             <p className="mb-4">
-              Austin here - thanks for coming to Manifest this year. It's been
-              nearly half a year, and we've been keeping busy, but I still
-              sometimes miss being surrounded with my favorite people in the
-              world, gathered together to indulge in our shared love of
-              prediction markets.
+              Austin here - it's been nearly half a year since{" "}
+              <a
+                href="https://www.manifest.is/"
+                className="underline underline-offset-2 font-semibold"
+              >
+                Manifest 2024
+              </a>
+              , and we've been keeping busy, but I still sometimes miss being
+              surrounded with my favorite people in the world, gathered together
+              to indulge in our shared love of prediction markets.
             </p>
 
             <p className="mb-4">
@@ -92,17 +97,18 @@ export default function Component() {
               says festivals can only occur annually, and I sure would like to
               see y'all more often than that. Unfortunately, a proper Manifest
               takes us a ton of time & energy to coordinate: logistics,
-              speakers, sponsors. What would a more minimal festival look like?
+              speakers, sponsors. What would an 80/20 minimal festival look
+              like?
             </p>
 
             <p className="mb-4">
               And so: minifest! We've booked out Lighthaven for a single day,
               Dec 14. We'll have unconference-style sessions, a smattering of
               events like charity poker, and ample time to hang out and chat.
-              We're running this on a shoestring budget (expect a homecooked
-              dinner instead of catering) so that everyone can come. It'll be a
-              cozy, lowkey, experimental version of the Manifest you know and
-              love.
+              We're running this on a shoestring budget, so that everyone can
+              come -- eg expect a homecooked dinner instead of catering. It'll
+              be a cozy, lowkey, experimental version of the Manifest you know
+              and love.
             </p>
 
             <p className="italic">
@@ -113,7 +119,7 @@ export default function Component() {
         </div>
 
         {/* Ticket Purchase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {tickets.map((ticket) => (
             <div
               key={ticket.tier}
@@ -125,7 +131,7 @@ export default function Component() {
               </p>
 
               <a href={ticket.stripeLink} className="mb-6">
-                <button className="bg-amber-800 text-white text-center py-3 px-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(146,64,14,1)] transition-all">
+                <button className="bg-amber-700 text-white text-center py-3 px-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(146,64,14,1)] transition-all">
                   <div className="text-2xl font-bold">${ticket.price}</div>
                 </button>
               </a>
@@ -147,7 +153,16 @@ export default function Component() {
 
         {/* Footer */}
         <footer className="mt-16 text-center text-amber-700 text-sm border-t-2 border-amber-200 pt-4">
-          <p>A cozy gathering by the Manifest team</p>
+          <p>
+            Questions? Find us on{" "}
+            <a
+              href="https://discord.gg/3KYVTpfads"
+              className="underline underline-offset-2 font-semibold"
+            >
+              Discord
+            </a>
+            !
+          </p>
         </footer>
       </div>
     </div>
