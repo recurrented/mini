@@ -13,6 +13,39 @@ export default function Component() {
     setEmail("");
   };
 
+  const tickets = [
+    {
+      tier: "Volunteer",
+      price: 20,
+      description: "help us with cooking, front desk, etc",
+      benefits: [
+        "minifest access",
+        "lunch, dinner, and snacks",
+        "~3 hours of volunteer work",
+      ],
+      stripeLink: "https://buy.stripe.com/volunteer_tier_link",
+    },
+    {
+      tier: "Attendee",
+      price: 80,
+      description: "we're excited to see you!",
+      benefits: ["minifest access", "lunch, dinner, and snacks"],
+      stripeLink: "https://buy.stripe.com/attendee_tier_link",
+    },
+    {
+      tier: "Supporter",
+      price: 280,
+      description: "aww, thanks for the support",
+      benefits: [
+        "minifest access",
+        "lunch, dinner, and snacks",
+        "first pick of vintage Manifest swag",
+        "$200 donation to Manifund",
+      ],
+      stripeLink: "https://buy.stripe.com/supporter_tier_link",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#FFF6E5] text-gray-800 px-4 py-8 md:py-16 font-mono">
       {/* Header */}
@@ -79,38 +112,37 @@ export default function Component() {
           </div>
         </div>
 
-        {/* Registration Form */}
-        <div className="bg-amber-100 p-8 border-2 border-amber-900 shadow-[8px_8px_0px_0px_rgba(146,64,14,1)]">
-          {hasRegistered ? (
-            <div className="text-center text-amber-900">
-              <h3 className="text-xl font-semibold mb-2">
-                Thanks for registering!
-              </h3>
-              <p>We'll be in touch with more details soon.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleRegistration} className="space-y-4">
-              <h3 className="text-xl font-semibold text-amber-900 mb-4">
-                Register Interest
-              </h3>
-              <div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  className="w-full p-3 border-2 border-amber-300 bg-white focus:outline-none focus:border-amber-500"
-                  required
-                />
+        {/* Ticket Purchase Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {tickets.map((ticket) => (
+            <div
+              key={ticket.tier}
+              className="bg-amber-50 p-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] flex flex-col gap-2"
+            >
+              <h3 className="text-xl font-medium mb-2">{ticket.tier}</h3>
+              <p className="text-sm text-amber-700 mb-4 md:h-12">
+                {ticket.description}
+              </p>
+
+              <a href={ticket.stripeLink} className="mb-6">
+                <button className="bg-amber-800 text-white text-center py-3 px-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(146,64,14,1)] transition-all">
+                  <div className="text-2xl font-bold">${ticket.price}</div>
+                </button>
+              </a>
+
+              <div className="text-sm">
+                <div className="font-medium mb-2">This includes:</div>
+                <ul className="space-y-2">
+                  {ticket.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-2">
+                      <span className="text-amber-700">✓</span>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <button
-                type="submit"
-                className="w-full bg-amber-800 text-white py-3 px-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(146,64,14,1)] transition-all"
-              >
-                Get Notified About Tickets
-              </button>
-            </form>
-          )}
+            </div>
+          ))}
         </div>
 
         {/* Footer */}
