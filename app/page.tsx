@@ -23,14 +23,14 @@ export default function Component() {
         "lunch, dinner, and snacks",
         "~3 hours of volunteer work",
       ],
-      stripeLink: "https://buy.stripe.com/volunteer_tier_link",
+      stripeLink: "https://buy.stripe.com/28oaIr1GyaWpcCscMN",
     },
     {
       tier: "Attendee",
       price: 80,
       description: "we're excited to see you!",
       benefits: ["minifest access", "lunch, dinner, and snacks"],
-      stripeLink: "https://buy.stripe.com/attendee_tier_link",
+      stripeLink: "https://buy.stripe.com/4gw7wfgBs0hLauk5km",
     },
     {
       tier: "Supporter",
@@ -42,7 +42,7 @@ export default function Component() {
         "first pick of vintage Manifest swag",
         "$200 donation to Manifund",
       ],
-      stripeLink: "https://buy.stripe.com/supporter_tier_link",
+      stripeLink: "https://buy.stripe.com/bIY17Rad44y1fOE5kn",
     },
   ];
 
