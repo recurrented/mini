@@ -1,5 +1,7 @@
 import { getAttendees } from "../utils/airtable";
 
+export const revalidate = 60;
+
 export default async function Component() {
   const attendees = await getAttendees();
 
