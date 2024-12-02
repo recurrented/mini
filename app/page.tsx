@@ -1,17 +1,7 @@
-"use client";
+import { getAttendees } from "../utils/airtable";
 
-import { useState } from "react";
-
-export default function Component() {
-  const [hasRegistered, setHasRegistered] = useState(false);
-  const [email, setEmail] = useState("");
-
-  const handleRegistration = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real implementation, this would connect to a registration system
-    setHasRegistered(true);
-    setEmail("");
-  };
+export default async function Component() {
+  const attendees = await getAttendees();
 
   const tickets = [
     {
@@ -45,12 +35,6 @@ export default function Component() {
       stripeLink: "https://buy.stripe.com/bIY17Rad44y1fOE5kn",
     },
   ];
-
-  const attendees = {
-    supporters: ["Austin", "John", "Jane"],
-    attendees: ["Alice", "Bob", "Charlie"],
-    volunteers: ["Eve", "Mallory", "Trent"],
-  };
 
   return (
     <div className="min-h-screen bg-[#FFF6E5] text-gray-800 md:px-4 md:py-16 font-mono">
@@ -162,32 +146,34 @@ export default function Component() {
           {/* Attendee Lists */}
           <div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <div>
-              <h3 className="font-semibold text-amber-900 mb-2">Supporters</h3>
-              <ul className="space-y-1">
-                {attendees.supporters.map((name) => (
+              <h3 className="font-semibold text-amber-900 mb-2">Volunteers</h3>
+              <ul className="space-y-0.5 text-xs">
+                {attendees.volunteers.map((name) => (
                   <li key={name}>{name}</li>
                 ))}
               </ul>
             </div>
+
             <div>
               <h3 className="font-semibold text-amber-900 mb-2">Attendees</h3>
-              <ul className="space-y-1">
+              <ul className="space-y-0.5 text-xs">
                 {attendees.attendees.map((name) => (
                   <li key={name}>{name}</li>
                 ))}
               </ul>
             </div>
+
             <div>
-              <h3 className="font-semibold text-amber-900 mb-2">Volunteers</h3>
-              <ul className="space-y-1">
-                {attendees.volunteers.map((name) => (
+              <h3 className="font-semibold text-amber-900 mb-2">Supporters</h3>
+              <ul className="space-y-0.5 text-xs">
+                {attendees.supporters.map((name) => (
                   <li key={name}>{name}</li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <p>
+          <p className="italic">
             Questions? Find us on{" "}
             <a
               href="https://discord.gg/3KYVTpfads"
