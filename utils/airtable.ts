@@ -34,7 +34,7 @@ export async function getAttendees(): Promise<AttendeesList> {
   const attendeesList: AttendeesList = {
     supporters: [],
     attendees: [],
-    volunteers: [],
+    volunteers: ["Austin Chen", "Rachel Weinberg", "Ada When"],
   };
 
   records.forEach((record) => {
