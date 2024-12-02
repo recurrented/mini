@@ -46,6 +46,12 @@ export default function Component() {
     },
   ];
 
+  const attendees = {
+    supporters: ["Austin", "John", "Jane"],
+    attendees: ["Alice", "Bob", "Charlie"],
+    volunteers: ["Eve", "Mallory", "Trent"],
+  };
+
   return (
     <div className="min-h-screen bg-[#FFF6E5] text-gray-800 md:px-4 md:py-16 font-mono">
       {/* Header */}
@@ -153,6 +159,34 @@ export default function Component() {
 
         {/* Footer */}
         <footer className="mt-16 text-center text-amber-700 text-sm border-t-2 border-amber-200 pt-4">
+          {/* Attendee Lists */}
+          <div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div>
+              <h3 className="font-semibold text-amber-900 mb-2">Supporters</h3>
+              <ul className="space-y-1">
+                {attendees.supporters.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-amber-900 mb-2">Attendees</h3>
+              <ul className="space-y-1">
+                {attendees.attendees.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-amber-900 mb-2">Volunteers</h3>
+              <ul className="space-y-1">
+                {attendees.volunteers.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           <p>
             Questions? Find us on{" "}
             <a
