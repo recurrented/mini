@@ -46,7 +46,7 @@ export default async function Component() {
           minifest
         </h1>
         <div className="text-lg text-amber-800 mb-8 border-b-2 border-amber-200 pb-4">
-          December 14, 2024 • Lighthaven, Berkeley
+          Dec 14, 2024 • 10am - 11pm • Lighthaven, Berkeley
         </div>
 
         {/* Quick Info Cards */}
