@@ -19,12 +19,12 @@ export function ScheduleSettings(props: { guests: Guest[] }) {
   const pathname = usePathname();
   const { replace } = useRouter();
   return (
-    <div className="flex flex-col md:flex-row md:justify-between gap-5 w-full rounded-md border border-gray-100 p-2 text-sm sm:text-base">
+    <div className="flex flex-col md:flex-row md:gap-10 gap-5 w-full text-sm">
       <div className="flex flex-col gap-1 sm:w-96">
         <span className="text-gray-500 text-sm">Showing schedule for...</span>
         <UserSelect guests={guests} />
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         <span className="text-gray-500 text-sm">View</span>
         <SelectView
           urlSearchParams={urlSearchParams}
