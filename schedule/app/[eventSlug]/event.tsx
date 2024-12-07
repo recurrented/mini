@@ -36,14 +36,14 @@ export function EventDisplay(props: {
   const view = searchParams.get("view") ?? "grid";
   const [search, setSearch] = useState("");
   return (
-    <div className="flex flex-col items-start w-full">
+    <div className="flex flex-col items-start mx-auto max-w-5xl">
       <p className="text-gray-900 mt-3 mb-5">{event.Description}</p>
       <div className="mb-10 w-full">
         <ScheduleSettings guests={guests} />
       </div>
       {view !== "grid" && (
         <Input
-          className="max-w-3xl w-full mb-5 mx-auto"
+          className="w-full mb-5 mx-auto"
           placeholder="Search sessions"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
