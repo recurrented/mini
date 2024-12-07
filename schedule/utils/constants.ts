@@ -1,5 +1,3 @@
-import { CakeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-
 export type NavItem = {
   name: string;
   href: string;
@@ -7,15 +5,9 @@ export type NavItem = {
 };
 
 export const CONSTS = {
-  TITLE: "Example Conference Weekend",
+  TITLE: "Minifest",
   DESCRIPTION:
-    "An Example Conference is happening from August 23 - 25, 2024 at Lighthaven. Check out the schedules for the main event and afterparty below!",
-  MULTIPLE_EVENTS: true,
-  // If you have multiple events, add your events to the nav bar below
-  // If you only have one event, you can leave the array empty
-  // Find available icons at https://heroicons.com/
-  NAV_ITEMS: [
-    { name: "Conference", href: "/Conference", icon: UserGroupIcon },
-    { name: "After Party", href: "/After-Party", icon: CakeIcon },
-  ] as NavItem[],
+    "We've booked out Lighthaven for a single day, Dec 14. We'll have unconference-style sessions, a smattering of events like charity poker, and ample time to hang out and chat. We're running this on a shoestring budget, so that everyone can come -- eg expect a homecooked dinner instead of catering. It'll be a cozy, lowkey, experimental version of the Manifest you know and love.",
+  MULTIPLE_EVENTS: false,
+  NAV_ITEMS: [],
 };
