@@ -49,7 +49,10 @@ export async function getAttendees(): Promise<AttendeesList> {
         attendeesList.attendees.push(name);
         break;
       case "Volunteer":
-        attendeesList.volunteers.push(name);
+        // Ignore duplicates, since we're hardcoding Austin/Rachel/Ada first
+        if (!attendeesList.volunteers.includes(name)) {
+          attendeesList.volunteers.push(name);
+        }
         break;
     }
   });
