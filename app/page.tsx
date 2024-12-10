@@ -38,6 +38,11 @@ export default async function Component() {
     },
   ];
 
+  const totalAttendees =
+    attendees.volunteers.length +
+    attendees.attendees.length +
+    attendees.supporters.length;
+
   return (
     <div className="min-h-screen bg-[#FFF6E5] text-gray-800 md:px-4 md:py-16 font-mono">
       {/* Header */}
@@ -60,7 +65,9 @@ export default async function Component() {
           </div>
           <div className="bg-amber-50 p-6 border-2 border-amber-200 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)]">
             <h2 className="font-semibold mb-2">Who</h2>
-            <p>~200 folks from the Manifest community and beyond</p>
+            <p>
+              {totalAttendees}+ folks from the Manifest community and beyond
+            </p>
           </div>
         </div>
 
