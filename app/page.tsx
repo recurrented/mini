@@ -16,6 +16,7 @@ export default async function Component() {
         "~3 hours of volunteer work",
       ],
       stripeLink: "https://buy.stripe.com/28oaIr1GyaWpcCscMN",
+      disabled: true,
     },
     {
       tier: "Attendee",
@@ -135,10 +136,31 @@ export default async function Component() {
                 {ticket.description}
               </p>
 
-              <a href={ticket.stripeLink} className="mb-6">
-                <button className="bg-amber-700 text-white text-center py-3 px-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(146,64,14,1)] transition-all">
-                  <div className="text-2xl font-bold">${ticket.price}</div>
-                </button>
+              <a
+                href={ticket.stripeLink}
+                className={`h-24 block ${
+                  ticket.disabled ? "pointer-events-none" : ""
+                }`}
+              >
+                <div className="flex flex-col items-center">
+                  <button
+                    className={`bg-amber-700 text-white text-center py-3 px-6 border-2 border-amber-900 shadow-[4px_4px_0px_0px_rgba(146,64,14,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(146,64,14,1)] transition-all ${
+                      ticket.disabled ? "opacity-50" : ""
+                    }`}
+                    disabled={ticket.disabled}
+                  >
+                    <div
+                      className={`text-2xl font-bold ${
+                        ticket.disabled ? "line-through" : ""
+                      }`}
+                    >
+                      ${ticket.price}
+                    </div>
+                  </button>
+                  {ticket.disabled && (
+                    <div className="text-xs text-amber-700 mt-2">sold out!</div>
+                  )}
+                </div>
               </a>
 
               <div className="text-sm">
