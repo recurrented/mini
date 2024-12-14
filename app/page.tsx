@@ -46,6 +46,13 @@ export default async function Component() {
 
   return (
     <div className="min-h-screen bg-[#FFF6E5] text-gray-800 md:px-4 md:py-16 font-mono">
+      <a
+        href="https://schedule.minifest.is"
+        className="block w-full bg-amber-700 text-white text-center md:-mt-16 py-3 mb-4 hover:bg-amber-800 transition-colors"
+      >
+        minifest schedule is here~
+      </a>
+
       {/* Header */}
       <div className="max-w-2xl mx-auto border-4 border-amber-900 p-4 md:p-8 bg-white/70 backdrop-blur-sm">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-amber-900 font-serif">
