@@ -1,8 +1,8 @@
 import Airtable from "airtable";
 
 // Example URL: https://airtable.com/app9FKZ1Mu9gM63Qw/tbltfgIYuDxBTacqU/
-const AIRTABLE_BASE_ID = "app9FKZ1Mu9gM63Qw";
-const AIRTABLE_TABLE_ID = "tbltfgIYuDxBTacqU";
+const AIRTABLE_BASE_ID = "appGpnLmhyc1qr0dg";
+const AIRTABLE_TABLE_ID = "tblphw88FRDobZ06b";
 
 const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
@@ -10,14 +10,14 @@ const base = new Airtable({
 
 type Attendee = {
   Name: string;
-  "Calculated Type": "Attendee" | "Supporter" | "Volunteer";
+  "Calculated Type": "friend" | "supporter" | "legend";
   Created: string;
 };
 
 type AttendeesList = {
-  supporters: string[];
-  attendees: string[];
-  volunteers: string[];
+  friend: string[];
+  supporter: string[];
+  legend: string[];
 };
 
 export async function getAttendees(): Promise<AttendeesList> {
@@ -32,9 +32,9 @@ export async function getAttendees(): Promise<AttendeesList> {
     .all();
 
   const attendeesList: AttendeesList = {
-    supporters: [],
-    attendees: [],
-    volunteers: ["Austin Chen", "Rachel Weinberg", "Ada When"],
+    friend: [],
+    supporter: [],
+    legend: ["pico", "ada"],
   };
 
   records.forEach((record) => {
@@ -42,16 +42,16 @@ export async function getAttendees(): Promise<AttendeesList> {
     const type = record.get("Calculated Type") as Attendee["Calculated Type"];
 
     switch (type) {
-      case "Supporter":
-        attendeesList.supporters.push(name);
+      case "friend":
+        attendeesList.friend.push(name);
         break;
-      case "Attendee":
-        attendeesList.attendees.push(name);
+      case "supporter":
+        attendeesList.supporter.push(name);
         break;
-      case "Volunteer":
-        // Ignore duplicates, since we're hardcoding Austin/Rachel/Ada first
-        if (!attendeesList.volunteers.includes(name)) {
-          attendeesList.volunteers.push(name);
+      case "legend":
+        // Ignore duplicates, since we're hardcoding 
+        if (!attendeesList.legend.includes(name)) {
+          attendeesList.legend.push(name);
         }
         break;
     }
