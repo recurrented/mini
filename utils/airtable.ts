@@ -1,8 +1,8 @@
 import Airtable from "airtable";
 
 // Example URL: https://airtable.com/app9FKZ1Mu9gM63Qw/tbltfgIYuDxBTacqU/
-const AIRTABLE_BASE_ID = "app9FKZ1Mu9gM63Qw";
-const AIRTABLE_TABLE_ID = "tbltfgIYuDxBTacqU";
+const AIRTABLE_BASE_ID = "app3345oF9K8Uzg2O";
+const AIRTABLE_TABLE_ID = "tblQja0ja6p7XcXX8";
 
 const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
